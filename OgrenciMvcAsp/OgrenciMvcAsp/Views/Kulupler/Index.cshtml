@@ -1,0 +1,31 @@
+﻿@using OgrenciMvcAsp.Models.EntityFramework
+@model List<TblKulupler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kulüpler Menu</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Kulüp ID</th>
+        <th>Kulüp Ad</th>
+        <th>Kulüp Kontenjan</th>
+        <th>İşlemler</th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.KULUPID</td>
+                <td>@item.KULUPAD</td>
+                <td>@item.KULUPKONTENJAN</td>
+                <td><a href="/Kulupler/Sil/@item.KULUPID" class="btn btn-danger">Sil</a>
+                <a href="/Kulupler/KulupGetir/@item.KULUPID" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<a href="/Kulupler/YeniKulup" class="btn btn-primary">Yeni Kulüp Ekle</a>
+

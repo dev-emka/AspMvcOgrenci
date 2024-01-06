@@ -1,0 +1,56 @@
+﻿@model OgrenciMvcAsp.Models.EntityFramework.TblNotlar
+@{
+    ViewBag.Title = "NotGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("NotGetir", "Notlar", FormMethod.Post))
+{
+    <div>
+        <label>Not ID</label>
+        @Html.TextBoxFor(m => m.NOTID, new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:10px">
+        <label>Ders ID</label>
+        @Html.TextBoxFor(m => m.DERSID, new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:10px">
+        <label>Öğrenci ID</label>
+        @Html.TextBoxFor(m => m.OGRID, new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:10px">
+        <label>Sınav 1</label>
+        @Html.TextBoxFor(m => m.SINAV1, new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:10px">
+        <label>Sınav 2</label>
+        @Html.TextBoxFor(m => m.SINAV2, new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:10px">
+        <label>Sınav 3</label>
+        @Html.TextBoxFor(m => m.SINAV3, new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:10px">
+        <label>Proje</label>
+        @Html.TextBoxFor(m => m.PROJE, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:10px">
+        <label>Ortalama: @ViewBag.ort</label>
+        
+    </div>
+    @Html.HiddenFor(m => m.NOTID)
+
+    <div>
+        <button type="submit" name="islem" value="HESAPLA" class="btn-default">Ortalama Hesapla</button>
+        <br />
+        <button type="submit" name="islem" value="GUNCELLE" class="btn-primary">Güncelle</button>
+    </div>
+    
+
+}

@@ -1,0 +1,28 @@
+﻿@using OgrenciMvcAsp.Models.EntityFramework
+@model List<TblDersler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dersler Menü</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Ders ID</th>
+        <th>Ders Ad</th>
+        <th>İşlemler</th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.DERSID</td>
+                <td>@item.DERSAD</td>
+                <td><a href="/Dersler/Sil/@item.DERSID" class="btn btn-danger">Sil</a>
+                <a href="/Dersler/DersGetir/@item.DERSID" class="btn btn-success">Güncelle</a> </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Dersler/Ekle" class="btn btn-primary">Yeni Ders Ekle</a>
+
